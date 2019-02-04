@@ -34,36 +34,42 @@ namespace ZonasWiFi
 
             string line = st.ReadLine();
             line = st.ReadLine();
-            int conta = 0;
-            while (conta<303)
-            {
+           
+            
+                while (line != null )
+                {
 
-                string[] info = line.Split(',');
-                string name = info[8];
-                string longitud = info[14];
-                string latitud = info[15];
+                    string[] info = line.Split(',');
+                    string name = info[8];
+                    string longitud = info[14];
+                    string latitud = info[15];
+
+              
                 writeFile(name, longitud, latitud);
-                conta++;
-                Console.WriteLine(conta + " CONTADOR");
-               
-                line = st.ReadLine();
-            }
+
+
+                    line = st.ReadLine();
+
+                }
+
             st.Close();
+           
+            
+
+
+
+
 
         }
         public void writeFile(string name, string longitud, string latitud)
         {
-            StreamWriter sw = new StreamWriter("...\\..\\archivos\\" + name + ".txt");
-            Console.WriteLine(name + " NOMBRE MUNICIPIO");
-           // Console.WriteLine(latitud + " LATITUD MUNICIPIO");
+            Console.WriteLine(name);
+            StreamWriter sw = new StreamWriter("...\\..\\archivos\\" + name + ".txt",true);
+            
             sw.WriteLine(longitud + "," + latitud);
             sw.Close();
         }
-        static void Main()
-        {
-            Zona z = new Zona();
-            z.readFiles();
-        }
+        
 
 
        
