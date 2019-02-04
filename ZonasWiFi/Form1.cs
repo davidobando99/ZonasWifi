@@ -54,18 +54,14 @@ namespace ZonasWiFi
         {
 
             string municipio = txtMunicipio.Text;
-           double[] info= zona.buscarMunicipio(municipio);
+            string[] info = zona.buscarMunicipio(municipio);
 
-            gMap.MapProvider = GMap.NET.MapProviders.BingMapProvider.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+           for(int i = 0; i < info.Length; i++)
+            {
+                 
+            }
+
            
-            gMap.Position = new GMap.NET.PointLatLng(info[0], info[1]);
-
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
-            GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(info[0], info[1]),
-            GMarkerGoogleType.purple);
-            markersOverlay.Markers.Add(marker);
-            gMap.Overlays.Add(markersOverlay);
 
 
 
