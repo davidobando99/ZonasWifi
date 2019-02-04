@@ -70,8 +70,19 @@ namespace ZonasWiFi
             sw.Close();
         }
         
+        public double[] buscarMunicipio(string name)
+        {
+            StreamReader st = new StreamReader("...\\..\\archivos\\"+name+".txt");
+
+            string line = st.ReadLine();
+            string[] info = line.Split(',');
+
+            double[] datos = { double.Parse(info[0]), double.Parse(info[1]) };
+
+            return datos;
+        }
 
 
-       
+
     }
 }
